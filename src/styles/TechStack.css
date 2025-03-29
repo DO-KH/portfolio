@@ -1,0 +1,80 @@
+/* src/styles/TechStack.css */
+
+.tech-stack {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #E0E0E0; /* About Me와 동일한 배경 */
+  color: #333;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* 전체 컨테이너 (좌우 열) */
+.tech-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  max-width: 900px;
+}
+
+/* 좌우 각각의 열 */
+.tech-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 행 간 간격 추가 */
+}
+
+/* 개별 기술 항목 (고정된 크기 적용) */
+.tech-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #F0F0F0;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* 모든 항목의 너비 동일하게 설정 */
+  height: 100px; /* 모든 항목의 높이 동일하게 설정 */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 아이콘 */
+.tech-icon {
+  font-size: 2rem;
+}
+
+/* 기술명 */
+.tech-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 설명 */
+.tech-description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* 반응형 스타일 (모바일에서는 한 줄 정렬) */
+@media (max-width: 768px) {
+  .tech-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tech-item {
+    width: 100%;
+    max-width: 400px;
+  }
+}

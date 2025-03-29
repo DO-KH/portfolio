@@ -1,0 +1,41 @@
+/* src/styles/Intro.css */
+
+.intro {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222; /* 다크 배경 */
+  color: white;
+  text-align: center;
+}
+
+.intro-content {
+  max-width: 800px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.highlight {
+  color: #4CAF50; /* 강조 색상 */
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}

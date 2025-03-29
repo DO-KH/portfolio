@@ -1,0 +1,31 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 🟢 모달이 화면 상단에서 시작 */
+  overflow-y: auto; /* ✅ 모달이 뷰포트를 넘어갈 경우 스크롤 가능 */
+  padding: 5vh 0; /* ✅ 모달이 화면 위/아래와 너무 붙지 않도록 여백 추가 */
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #F0F0F0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 1100px; /* ✅ 가로 너비 확장 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+}
+
+
+
+
+
+
