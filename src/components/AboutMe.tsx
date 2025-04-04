@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const AboutMe = () => {
   return (
     <section
-      id="intro"
+      id="about-me"
       className="h-screen flex justify-center items-center bg-[#222] text-white text-center border-b border-[#444]"
     >
       <div className="max-w-[800px] p-5">
