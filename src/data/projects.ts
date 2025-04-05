@@ -128,9 +128,9 @@ export const projects = [
     //   "해당 서비스는 영상 시청 페이지를 제외한 대부분의 페이지에서 무한 스크롤을 지원하고 있으며, YouTube API의 pageToken을 통해 영상 데이터를 이어서 받아올 수 있다.\n따라서 초기 데이터에 한해 SSR을 도입함으로써 사용자 경험 측면에서 실질적인 이점을 얻을 수 있었다고 판단된다.\n\n다만, 사용자 인터랙션 이후 빠른 반응성을 중시하는 CSR 기반 페이지에 SSR을 도입할 경우, 초기 로딩 속도는 다소 개선될 수 있으나 서버 비용 증가만 초래할 수 있어 상황에 따라 신중한 선택이 필요하다.\n\n이러한 이유로 사전 렌더링 전략은 단순히 기술적 이슈 해결보다는 사용자의 긍정적인 경험을 최우선으로 고려해 적절히 적용되어야 한다.\n\n또한, 페이지 렌더링은 서버와 클라이언트 환경에 따라 유연하게 설계되어야 하며, 이 과정에서 React 훅의 SSR-Safe 여부를 신중히 검토하고, 비동기 함수의 실행 시점도 렌더링 전략에 맞춰 전략적으로 구성하는 것이 중요하다."
     // ],
     screenshots: [
-      "https://github.com/Doo-Nuts/StreamNset/blob/main/public/streamnest1.png?raw=true",
-      "/project2.png",
-      "/project3.png",
+      "/streamnest/streamnest1.png",
+      "/streamnest/streamnest2.png",
+      "/streamnest/streamnest3.png",
     ],
   },
   {
@@ -181,9 +181,9 @@ export const projects = [
       "TypeScript와의 시너지로 Prisma ORM은 정의된 데이터 모델을 기반으로 API 응답 타입을 자동으로 유추 가능했으며, DB 스키마와 코드간의 동기화가 자연스럽게 이루어져 개발이 편했음",
     ],
     screenshots: [
-      "https://github.com/Doo-Nuts/StreamNset/blob/main/public/streamnest1.png?raw=true",
-      "/project2.png",
-      "/project3.png",
+      "/myfridge/myfridge1.png",
+      "/myfridge/myfridge2.png",
+      "/myfridge/myfridge3.png",
     ],
   },
 ];
