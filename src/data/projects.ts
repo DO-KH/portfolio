@@ -65,7 +65,7 @@ export const projects = [
     retrospective: [
       "로그인 여부에 따라 렌더링 결과가 달라지므로 SSR, SSG등 사전 렌더링 방식 적용에 한계가 있었음",
       "대부분의 기능이 사용자의 상호작용으로 동작하기에 서버 컴포넌트로 분리 이점이 없음",
-      "결과적으로 해당 프로젝트는 CSR을 유지하는게 맞으며 여러 이유로 해당 프레임워크는 오버스펙이였음을 최종 판단함",
+      "Next.js를 학습하기 위한 프로젝트였지만 해당 프로젝트는 CSR을 유지하는게 맞으며 여러 이유로 해당 프레임워크는 오버스펙이였음을 판단함",
     ],
     screenshots: [
       "/todoapp/todoapp1.png",
@@ -151,7 +151,7 @@ export const projects = [
       "식재료 카테고리별 분류 가능",
     ],
     techStack: [
-      { label: "Frontend", value: "Next.js (App Router)" },
+      { label: "Frontend", value: "React.js (Vite)" },
       { label: "Backend", value: "Node.js (Express)" },
       { label: "Language", value: "TypeScript" },
       { label: "Database", value: "MySQL (via Prisma ORM)" },

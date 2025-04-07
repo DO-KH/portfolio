@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 
 const techs = [
-  { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", description: "시맨틱 마크업을 고려한 웹 표준 작성 가능" },
-  { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", description: "Flexbox, Grid 활용 및 반응형 디자인 적용 가능" },
-  { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", description: "ES6+ 문법과 비동기 처리 이해" },
-  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", description: "React 프로젝트에서 TS 적용 및 타입 관리 경험" },
-  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", description: "컴포넌트 기반 개발 및 상태 관리 (Zustand, React Query)" },
-  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", description: "SSR, ISR 활용 및 SEO 최적화 경험" },
-  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", description: "Express 기반 백엔드 API 개발 및 JWT 인증 구현" },
-  { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", description: "Prisma 활용 및 데이터베이스 최적화 경험" },
+  { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", description: "SEO에 맞도록 의미론적인 태그 활용 가능" },
+  { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", description: "Flex, Grid를 활용한 반응형 레이아웃 구성 가능" },
+  { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", description: "ES6+ 최신 문법을 활용한 비동기 흐름 제어 가능" },
+  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", description: "React 컴포넌트간 명확한 데이터 흐름 구현에 활용" },
+  { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", description: "재사용 가능한 컴포넌트 활용으로 유지보수와 확장성 있는 구조 설계" },
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", description: "서버 컴포넌트 기반 설계 및 SEO를 위한 사전 렌더링 방식 활용 가능" },
+  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", description: "Express 기반 백엔드 API 개발 및 로그인, Prisma ORM 활용 가능" },
+  { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", description: "SQL 쿼리 작성, Workbench, DBeaver 활용 가능" },
 ];
 
 const TechStack = () => {
