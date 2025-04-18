@@ -9,7 +9,6 @@ type ProjectDetailProps = {
   onClose: () => void;
 };
 
-// ✅ `react-modal`의 최상위 엘리먼트 지정 (Vite 프로젝트에서 필수)
 Modal.setAppElement("#root");
 
 const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
@@ -18,13 +17,13 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
 
   useEffect(() => {
     if (project) {
-      document.body.style.overflow = "hidden"; // ✅ 모달이 열릴 때 배경 스크롤 막기
+      document.body.style.overflow = "hidden"; // 모달이 열릴 때 배경 스크롤 막기
     } else {
-      document.body.style.overflow = "auto"; // ✅ 모달이 닫히면 다시 스크롤 가능하게
+      document.body.style.overflow = "auto"; // 모달이 닫히면 다시 스크롤 가능하게
     }
 
     return () => {
-      document.body.style.overflow = "auto"; // ✅ 컴포넌트가 언마운트될 때 스크롤 해제
+      document.body.style.overflow = "auto"; // 컴포넌트가 언마운트될 때 스크롤 해제
     };
   }, [project]);
 
@@ -40,7 +39,7 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
       }
     };
 
-    // ✅ 캡처 단계에서 이벤트 감지
+    // 캡처 단계에서 이벤트 감지
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -56,7 +55,7 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
     >
       {project && (
         <>
-          {/* ✅ 상단 (제목, 이미지) */}
+          {/* 상단 (제목, 이미지) */}
           <div className="text-center mb-6 w-full max-w-[1100px] p-6 bg-[#FAFAFA] rounded-lg shadow-lg">
             <h2 className="text-3xl font-bold">{project.title}</h2>
             <p className="mt-3">{project.details}</p>
@@ -192,14 +191,19 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
             )}
           </div>
 
-          {/* ✅ 닫기 버튼 */}
-          <div className="mt-6 text-center">
+          {/* 닫기 버튼 */}
+          <div className="mt-6 flex gap-5 text-center">
             <button
               onClick={onClose}
               className="bg-gray-800 text-white px-6 py-3 rounded-md text-lg transition hover:bg-gray-900"
             >
               닫기
             </button>
+            <div
+              className="bg-gray-800 text-white px-6 py-3 rounded-md text-lg transition hover:bg-gray-900"
+            >
+              <a href={project.serviceLink}>서비스로 이동</a>
+            </div>
           </div>
         </>
       )}

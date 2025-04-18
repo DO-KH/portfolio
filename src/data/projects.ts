@@ -16,6 +16,7 @@ export interface ProjectType {
   implementation: { description: string; code: string }[];
   screenshots?: string[];
   retrospective?: string[];
+  serviceLink: string;
 }
 
 export const projects = [
@@ -72,6 +73,7 @@ export const projects = [
       "/todoapp/todoapp2.png",
       "/todoapp/todoapp3.png",
     ],
+    serviceLink: "https://todoapp-p1moyq30t-doo-nuts-projects.vercel.app/"
   },
   {
     id: "streamnest",
@@ -132,6 +134,7 @@ export const projects = [
       "/streamnest/streamnest2.png",
       "/streamnest/streamnest3.png",
     ],
+    serviceLink: "https://stream-nest-beta.vercel.app/"
   },
   {
     id: "myFridge",
@@ -143,7 +146,7 @@ export const projects = [
     github: "https://github.com/xxx/todo-app",
     period: "2025-03",
     people: "(1인)",
-    coment: "",
+    coment: `"기획의 중요성을 느낀 프로젝트였습니다."`,
     features: [
       "유통기한 지난 식품, 임박한 식품, 최근 입고된 식품 자동 분류 및 시각화",
       "전체 식품 목록 조회, 수량 실시간 조정, 식품별 쿠팡 최저가 검색 링크",
@@ -176,7 +179,7 @@ export const projects = [
     ],
     retrospective: [
       "React는 View 중심의 프레임워크로 복잡한 상태 관리를 효율적으로 처리할 수 있지만, 전역 상태를 제한하고 Model을 분리하는 아키텍처 패턴(MVC 등)은 규모가 커질수록 점진적으로 도입하는 것이 효과적이다.",
-      "모든 컴포넌트가 CSR로 동작하지만 냉장고 데이터를 모두 가져와 렌더링 해야하는 경우가 있으므로 초기 로딩 속도 개선을 위해 SSR적용이 필요할수도 있다고 판단",
+      "초기 로딩 속도 개선을 위해 직접 SSR을 구현하려 했지만 실패함, 페이지 특성상 SSR-Safe 하지 않은 훅이 있어 구현에 제약이 있었음",
       "SPA를 통한 긍정적 경험을 위해 각 컴포넌트가 필요할때 트리거 되어 렌더링 되어야 하지만 본 프로젝트는 냉장고 데이터가 한 눈에 들어와야 하므로 조건부 렌더링은 적합하지 않다고 판단함",
       "TypeScript와의 시너지로 Prisma ORM은 정의된 데이터 모델을 기반으로 API 응답 타입을 자동으로 유추 가능했으며, DB 스키마와 코드간의 동기화가 자연스럽게 이루어져 개발이 편했음",
     ],
@@ -185,5 +188,6 @@ export const projects = [
       "/myfridge/myfridge2.png",
       "/myfridge/myfridge3.png",
     ],
+    serviceLink: ""
   },
 ];
