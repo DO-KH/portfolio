@@ -188,6 +188,6 @@ export const projects = [
       "/myfridge/myfridge2.png",
       "/myfridge/myfridge3.png",
     ],
-    serviceLink: ""
+    serviceLink: "https://my-fridge-alpha.vercel.app/"
   },
 ];
