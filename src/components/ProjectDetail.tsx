@@ -96,10 +96,19 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
               </h3>
               <ul className="list-disc pl-6 text-gray-700 text-base leading-relaxed space-y-2">
                 {project.techStack.map((item, idx) => (
-                  <li key={idx}>
-                    <strong className="text-gray-800">{item.label} -</strong>{" "}
-                    {item.value}
-                  </li>
+                  <li className="group list-item list-disc" key={idx}>
+                  <strong className="text-gray-800 after:content-['-'] after:ml-2 mr-2 whitespace-nowrap">
+                    {item.label}
+                  </strong>
+                  <span className="relative">
+                    <span className="opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                      {item.value}
+                    </span>
+                    <span className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                      {item.description}
+                    </span>
+                  </span>
+                </li>
                 ))}
               </ul>
             </div>
@@ -124,7 +133,7 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
                       <div className="text-base leading-relaxed text-gray-700">
                         {item.description}{" "}
                         <button
-                          className="text-sm text-green-600 ml-2"
+                          className="text-sm text-green-600 ml-2 cursor-pointer"
                           onClick={() =>
                             setOpenIndex((prev) => (prev === idx ? null : idx))
                           }
@@ -199,9 +208,7 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
             >
               닫기
             </button>
-            <div
-              className="bg-gray-800 text-white px-6 py-3 rounded-md text-lg transition hover:bg-gray-900"
-            >
+            <div className="bg-gray-800 text-white px-6 py-3 rounded-md text-lg transition hover:bg-gray-900">
               <a href={project.serviceLink}>서비스로 이동</a>
             </div>
           </div>

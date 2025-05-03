@@ -30,7 +30,7 @@ export const codeSamples = {
 
   }));
   `,
-  todoApp2:`
+  todoApp2: `
     try {
       let res;
       if (modalType === "signin") {
@@ -108,7 +108,7 @@ export const codeSamples = {
     }
 
   `,
-  streamNest2:`
+  streamNest2: `
     export async function fetchLikedVideos(
       accessToken: string,
       pageToken?: string
@@ -174,80 +174,50 @@ export const codeSamples = {
     }, [loadMore, loading, nextPageToken]);
   `,
   myFridge1: `
-    // 컴포넌트가 의존하는 인터페이스
+    // 인터페이스
     export interface itemService {
       fetchAll(): Promise<Item[]>;
       add(item: Omit<Item, "id">): Promise<Item[]>;
       delete(id: number): Promise<Item[]>;
       updateQuantity(id: number, quantity: number): Promise<Item[]>;
     }
-    // 사실 동작하는 구현체는 따로 있음
-    export { dbItemService } from "./dbItemService";
-    export { localItemService } from "./localItemService";
-
-    //...
-
-    // 컴포넌트에서 선택적으로 사용
-    import { localItemService as itemService } from "@/services/itemService";
-
-    //...
-    useEffect(() => {
-      itemService.fetchAll().then(setItems);
-    }, []);
-
-    const handleDelete = async (id: number) => {
-      const updated = await itemService.delete(id);
-      setItems(updated);
-    };
-
-    const handleUpdateQuantity = async (id: number, newQuantity: number) => {
-      const updated = await itemService.updateQuantity(id, newQuantity);
-      setItems(updated);
+    
+    // 구현체 선택
+    export const getItemService = (): itemService => {
+      const { user, status } = useAuthStore.getState();
+      if (status === "checking") {
+        throw new Error("인증 상태가 확인되기 전에는 itemService를 사용할 수 없습니다.");
+      }
+      // 회원인 경우
+      if (user && status === "authenticated") return dbItemService;
+      return localItemService; // 게스트인 경우
     };
   `,
   myFridge2: `
-    // 세션 검증후 최신 상태 반영 
-    loadUser: async () => {
+    register: async (email, password, name, withGuestData) => {
       try {
-        const currentUser = await fetchCurrentUser();
-        set({ user: currentUser });
+        // 회원가입 요청
+        await fetchRegister(email, password, name);
+        // 데이터 이전을 원하지 않는 경우
+        if (!withGuestData) return false;
+        // dbItemService 접근을 위해 로그인
+        const loginUser = await useAuthStore.getState().login(email, password);
+        if (!loginUser) {
+          console.error("로그인 실패");
+          return false;
+        }
+        // 로컬 -> DB 데이터 이전 요청
+        const bulkResult = await useItemStore.getState().bulkCreateFromLocalItems();
+        console.log("데이터 이전 결과:", bulkResult);
+        // 로컬 스토리지 비우기
+        const clearResult = await useItemStore.getState().clearLocalItems();
+        console.log("로컬 데이터 클리어 결과:", clearResult);
+        return true;
       } catch (err) {
-        console.log(err);
-        set({ user: null });
+        console.error("register 실패:", err);
+        return false;
       }
     },
-
-    // 클라이언트 요청
-    export async function fetchCurrentUser() {
-      try {
-        const res = await fetch("http://localhost:5000/api/auth/user", {
-          method: "GET",
-          credentials: "include",
-        });
-        if (!res.ok) return null;
-        return await res.json();
-      } catch (error) {
-        console.error("사용자 정보 가져오기 실패:", error);
-        return null;
-      }
-    }
-
-    // 서버 응답
-    router.get("/user", async (req: Request, res: Response): Promise<void> => {
-      if (!req.session.userId) {
-        res.status(401).json({ error: "로그인이 필요합니다." });
-        return;
-      }
-      const user = await prisma.user.findUnique({
-        where: { id: req.session.userId },
-        select: { id: true, name: true, email: true },
-      });
-      if (!user) {
-        res.status(401).json({ error: "유저를 찾을 수 없습니다." });
-        return;
-      }
-      res.json(user);
-    });
   `,
   myFridge3: `
     import { create } from "zustand";
@@ -301,4 +271,4 @@ export const codeSamples = {
       },
     }));
   `,
-}
+};

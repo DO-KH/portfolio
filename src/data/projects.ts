@@ -12,7 +12,7 @@ export interface ProjectType {
   people: string;
   coment: string;
   features: string[];
-  techStack: { label: string; value: string }[];
+  techStack: { label: string; value: string, description: string }[];
   implementation: { description: string; code: string }[];
   screenshots?: string[];
   retrospective?: string[];
@@ -38,13 +38,13 @@ export const projects = [
       "카테고리별 필터 기능",
     ],
     techStack: [
-      { label: "Frontend", value: "Next.js (App Router)" },
-      { label: "Backend", value: "ServerLess (API Route)" },
-      { label: "Language", value: "TypeScript" },
-      { label: "Database", value: "Supabase (PostgreSQL via Prisma ORM)" },
-      { label: "Auth", value: "NextAuth (jwt 토큰 기반)" },
-      { label: "State Manegement", value: "Zustand" },
-      { label: "Style", value: "Tailwind CSS" },
+      { label: "Frontend", value: "Next.js (App Router)", description: "" },
+      { label: "Backend", value: "ServerLess (API Route)", description: "" },
+      { label: "Language", value: "TypeScript", description: "" },
+      { label: "Database", value: "Supabase (PostgreSQL via Prisma ORM)", description: "" },
+      { label: "Auth", value: "NextAuth (jwt 토큰 기반)", description: "" },
+      { label: "State Manegement", value: "Zustand", description: "" },
+      { label: "Style", value: "Tailwind CSS", description: "" },
     ],
     implementation: [
       {
@@ -95,12 +95,13 @@ export const projects = [
       "초기 데이터 페칭은 SSR로 동작, 이후 스크롤 로드에 대해서는 CSR로 동작",
     ],
     techStack: [
-      { label: "Frontend", value: "Next.js (App Router)" },
-      { label: "Backend", value: "ServerLess (API Route)" },
-      { label: "Language", value: "TypeScript" },
-      { label: "External API", value: "YouTube Data API v3" },
-      { label: "Auth", value: "NextAuth (Google OAuth)" },
-      { label: "Style", value: "Tailwind CSS" },
+      { label: "Frontend", value: "Next.js (App Router)", description: "SSR을 통한 초기 로딩 속도 개선, 서버·클라이언트 컴포넌트로 렌더링 최적화" },
+      { label: "Backend", value: "Serverless (API Route)", description: "프론트·백엔드 일원화로 편리한 코드 관리와 동시에 REST API 방식 유지 가능" },
+      { label: "Language", value: "TypeScript", description: "YouTube Api 엔드포인트별 제공하는 복잡한 데이터 타입을 안정적으로 관리" },
+      { label: "External API", value: "YouTube Data API v3", description: "기존 유튜브 영상 및 관련 데이터 제공" },
+      { label: "Auth", value: "NextAuth (Google OAuth)", description: "빠르고 간편한 유지보수, 검증된 패키지를 통해 보안 취약점을 대신 관리" },
+      { label: "Style", value: "Tailwind CSS", description: "빠른 개발, 컴포넌트 기반 UI와 결합하여 재사용성 강화" },
+      { label: "Deployment", value: "Vercel", description: "Next.js기반 완벽 호환성, Serverless 환경에서 자동 스케일링으로 동작" },
     ],
     implementation: [
       {
@@ -148,27 +149,28 @@ export const projects = [
     people: "(1인)",
     coment: `"기획의 중요성을 느낀 프로젝트였습니다."`,
     features: [
-      "유통기한 지난 식품, 임박한 식품, 최근 입고된 식품 자동 분류 및 시각화",
-      "전체 식품 목록 조회, 수량 실시간 조정, 식품별 쿠팡 최저가 검색 링크",
+      "유통기한, 입고 날짜를 이용하여 식품 데이터 자동 분류 및 시각화",
+      "서비스 최초 진입시 게스트, 회원 모드 선택 가능",
       "유통기한 임박, 식품 추가 시 toast 알림 - 활성화/비활성화 가능",
       "식재료 카테고리별 분류 가능",
     ],
     techStack: [
-      { label: "Frontend", value: "React.js (Vite)" },
-      { label: "Backend", value: "Node.js (Express)" },
-      { label: "Language", value: "TypeScript" },
-      { label: "Database", value: "MySQL (via Prisma ORM)" },
-      { label: "Auth", value: "Express-Session (쿠키 기반)" },
-      { label: "State Manegement", value: "Zustand" },
-      { label: "Style", value: "Tailwind CSS" },
+      { label: "Frontend", value: "React.js (Vite)", description: "Vite의 효율적인 번들링과 최적화된 빌드로 빠르고 안정적인 서비스 개발" },
+      { label: "Backend", value: "Node.js (Express)", description: "비동기 I/O 기반 API 서버의 빠른 응답성과 사용자 데이터의 실시간 처리" },
+      { label: "Language", value: "TypeScript", description: "프론트와 백엔드를 같은 언어로 일치시켜 데이터 타입의 일관성 확보, 유지보수성 강화" },
+      { label: "Database", value: "MySQL (via Prisma ORM)", description: "사용자, 데이터간 안정적인 관계 관리, 실제 운영 가능성 고려" },
+      { label: "Auth", value: "쿠키 기반 세션 (Express-Session, MySQLStore)", description: "단순·직관적인 세션 관리, 세션 데이터의 영속성 확보" },
+      { label: "State Manegement", value: "Zustand", description: "프로젝트 규모에 맞는 상태관리, 리렌더링 최적화" },
+      { label: "Style", value: "Tailwind CSS", description: "빠른 개발 및 스타일 충돌 최소화" },
+      { label: "Deployment / Hosting", value: "Vercel, Railway", description: "자동 빌드 및 깃허브 연결, MySQL 데이터베이스 호스팅" }
     ],
     implementation: [
       {
-        description: "데이터 보존 전략으로 서비스 계층을 도입하여 컴포넌트와 스토어가 인터페이스를 의존하도록 구성 후 구현체만 로컬에서 DB로 전환할수 있도록 확장성을 대비하여 설계함",
+        description: "팩토리 메서드 패턴을 이용하여 itemService 인터페이스에 대해 적절한 서비스 구현체를 반환(게스트, 회원)",
         code: codeSamples.myFridge1,
       },
       {
-        description: "로그인 후 세션 확인을 위한 검증이 언제든 일어날 수 있으며 최신 상태를 유지해야한다.",
+        description: "게스트 모드로 추가한 로컬 데이터를 회원가입 시점에 여부를 확인하여 DB에 이전",
         code: codeSamples.myFridge2,
       },
       {
@@ -178,7 +180,7 @@ export const projects = [
 
     ],
     retrospective: [
-      "React는 View 중심의 프레임워크로 복잡한 상태 관리를 효율적으로 처리할 수 있지만, 전역 상태를 제한하고 Model을 분리하는 아키텍처 패턴(MVC 등)은 규모가 커질수록 점진적으로 도입하는 것이 효과적이다.",
+      "React는 View 중심의 프레임워크로 전역 상태를 ",
       "초기 로딩 속도 개선을 위해 직접 SSR을 구현하려 했지만 실패함, 페이지 특성상 SSR-Safe 하지 않은 훅이 있어 구현에 제약이 있었음",
       "SPA를 통한 긍정적 경험을 위해 각 컴포넌트가 필요할때 트리거 되어 렌더링 되어야 하지만 본 프로젝트는 냉장고 데이터가 한 눈에 들어와야 하므로 조건부 렌더링은 적합하지 않다고 판단함",
       "TypeScript와의 시너지로 Prisma ORM은 정의된 데이터 모델을 기반으로 API 응답 타입을 자동으로 유추 가능했으며, DB 스키마와 코드간의 동기화가 자연스럽게 이루어져 개발이 편했음",
