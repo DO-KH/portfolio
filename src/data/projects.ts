@@ -96,7 +96,7 @@ export const projects = [
     ],
     techStack: [
       { label: "Frontend", value: "Next.js (App Router)", description: "SSR을 통한 초기 로딩 속도 개선, 서버·클라이언트 컴포넌트로 렌더링 최적화" },
-      { label: "Backend", value: "Serverless (API Route)", description: "프론트·백엔드 일원화로 편리한 코드 관리와 동시에 REST API 방식 유지 가능" },
+      { label: "Backend", value: "Serverless (API Route)", description: "프론트·백엔드 일원화로 편리한 코드 관리와 동시에 REST API 방식 유지" },
       { label: "Language", value: "TypeScript", description: "YouTube Api 엔드포인트별 제공하는 복잡한 데이터 타입을 안정적으로 관리" },
       { label: "External API", value: "YouTube Data API v3", description: "기존 유튜브 영상 및 관련 데이터 제공" },
       { label: "Auth", value: "NextAuth (Google OAuth)", description: "빠르고 간편한 유지보수, 검증된 패키지를 통해 보안 취약점을 대신 관리" },

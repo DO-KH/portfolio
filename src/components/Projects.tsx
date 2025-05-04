@@ -5,6 +5,7 @@ import { projects, ProjectType } from "../data/projects";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
 
   return (
     <section
@@ -49,7 +50,10 @@ const Projects = () => {
 
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300">
               <button
-                onClick={() => setSelectedProject(project)}
+                onClick={() => {
+                  setSelectedProject(project)
+                  setSelectedProjectIndex(projects.findIndex(p => p.id === project.id))
+                }}
                 className="bg-transparent text-white border border-white w-[200px] py-3 rounded-md text-center mb-2 transition hover:bg-white hover:text-[#222]"
               >
                 자세히 보기
@@ -69,7 +73,11 @@ const Projects = () => {
 
       <ProjectDetail
         project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        projectIndex={selectedProjectIndex}
+        onClose={() => {
+          setSelectedProject(null)
+          setSelectedProjectIndex(null)
+        }}
       />
     </section>
   );

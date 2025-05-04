@@ -6,12 +6,17 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type ProjectDetailProps = {
   project: ProjectType | null;
+  projectIndex: number | null;
   onClose: () => void;
 };
 
 Modal.setAppElement("#root");
 
-const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
+const ProjectDetail = ({
+  project,
+  projectIndex,
+  onClose,
+}: ProjectDetailProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const codeRefs = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -97,18 +102,24 @@ const ProjectDetail = ({ project, onClose }: ProjectDetailProps) => {
               <ul className="list-disc pl-6 text-gray-700 text-base leading-relaxed space-y-2">
                 {project.techStack.map((item, idx) => (
                   <li className="group list-item list-disc" key={idx}>
-                  <strong className="text-gray-800 after:content-['-'] after:ml-2 mr-2 whitespace-nowrap">
-                    {item.label}
-                  </strong>
-                  <span className="relative">
-                    <span className="opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                      {item.value}
-                    </span>
-                    <span className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                      {item.description}
-                    </span>
-                  </span>
-                </li>
+                    <strong className="text-gray-800 after:content-['-'] after:ml-2 mr-2 whitespace-nowrap">
+                      {item.label}
+                    </strong>
+                    {projectIndex === 0 ? (
+                      // project[0]일 때는 그냥 value만 표시
+                      <span>{item.value}</span>
+                    ) : (
+                      // 나머지 프로젝트는 hover 시 description 표시
+                      <span className="relative">
+                        <span className="opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                          {item.value}
+                        </span>
+                        <span className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                          {item.description}
+                        </span>
+                      </span>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>
