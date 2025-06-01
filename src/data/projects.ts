@@ -23,19 +23,19 @@ export const projects = [
   {
     id: "todo",
     title: "TodoApp",
-    description: "날짜별 할 일을 관리할 수 있는 투두앱",
-    details: "날짜별 할 일을 캘린더를 통해 체계적으로 관리",
+    description: "캘린더를 통해 할 일을 한 눈에 관리",
+    details: "사용자의 할 일을 분류하여 체계적인 관리 가능",
     image:
       "https://raw.githubusercontent.com/Doo-Nuts/todo-app/0904e0197ca619db97bea66961600a8faf75835a/public/todoapp1.png",
     github: "https://github.com/xxx/todo-app",
     period: "2025-01",
     people: "(1인)",
-    coment: `"결과적으로 닭 잡는데 소 잡는 칼을 사용한 프로젝트였습니다."`,
+    coment: `"기본기의 중요함을 느낀 프로젝트였습니다."`,
     features: [
-      "사용자별 todo",
-      "날짜별 todo를 캘린더를 통해 체계적으로 관리",
-      "게스트 todo는 로컬스토리지에 저장",
-      "카테고리별 필터 기능",
+      "todo에 대해 추가, 삭제, 완료 처리 가능",
+      "종류별 필터로 todo 정렬 가능",
+      "로그인을 통해 todo를 DB에 저장하여 영속적으로 관리",
+      "캘린더를 통해 todo를 시각적으로 강조",
     ],
     techStack: [
       { label: "Frontend", value: "Next.js (App Router)", description: "" },
@@ -64,9 +64,10 @@ export const projects = [
       },
     ],
     retrospective: [
-      "로그인 여부에 따라 렌더링 결과가 달라지므로 SSR, SSG등 사전 렌더링 방식 적용에 한계가 있었음",
-      "대부분의 기능이 사용자의 상호작용으로 동작하기에 서버 컴포넌트로 분리 이점이 없음",
-      "Next.js를 학습하기 위한 프로젝트였지만 해당 프로젝트는 CSR을 유지하는게 맞으며 여러 이유로 해당 프레임워크는 오버스펙이였음을 판단함",
+      "Next 프레임워크의 API Route 덕분에 한 프로젝트 안에서 프론트와 백을 개발할 수 있어 편했음",
+      "해당 서비스는 사용자 입력과 동적 상태 변화가 중심이였기에 SSR, SSG등 사전 렌더링 방식보다 CSR에 더 적합한 구조였음",
+      "결과적으로 모든 컴포넌트를 클라이언트에서 처리하게 되면서 서버 컴포넌트가 강점인 Next.js의 특징을 활용하기에는 구조적으로 어울리지 않았음",
+      "App Router에서 동적 API가 비동기로 취급되면서 매개변수인 params를 await params로 구조분해 할당하여 받아와야 했음(15버전 이상)"
     ],
     screenshots: [
       "/todoapp/todoapp1.png",
