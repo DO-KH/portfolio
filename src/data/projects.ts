@@ -27,7 +27,7 @@ export const projects = [
     details: "사용자의 할 일을 분류하여 체계적인 관리 가능",
     image:
       "https://raw.githubusercontent.com/Doo-Nuts/todo-app/0904e0197ca619db97bea66961600a8faf75835a/public/todoapp1.png",
-    github: "https://github.com/xxx/todo-app",
+    github: "https://github.com/DO-KH/todo-app",
     period: "2025-01",
     people: "(1인)",
     coment: `"기본기의 중요함을 느낀 프로젝트였습니다."`,
@@ -84,7 +84,7 @@ export const projects = [
       "YouTube Api를 이용하여 실제 업로드된 영상을 불러오는 유사 유튜브 사이트",
     image:
       "https://github.com/Doo-Nuts/StreamNset/blob/main/public/streamnest1.png?raw=true",
-    github: "https://github.com/xxx/todo-app",
+    github: "https://github.com/DO-KH/StreamNset",
     period: "2025-01",
     people: "(1인)",
     coment: `"공식이 주는 안정감"`,
@@ -145,7 +145,7 @@ export const projects = [
     details: "유통기한을 기반으로 식재료 재고를 체계적으로 관리",
     image:
       "https://github.com/Doo-Nuts/my-fridge/blob/main/public/myfridge1.png?raw=true",
-    github: "https://github.com/xxx/todo-app",
+    github: "https://github.com/DO-KH/my-fridge",
     period: "2025-03",
     people: "(1인)",
     coment: `"기획의 중요성을 느낀 프로젝트였습니다."`,
